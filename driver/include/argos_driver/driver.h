@@ -18,7 +18,7 @@ public:
   bool Poll(void);
 private:
   ros::Publisher output_;
-  argos::Client client_;
+  argos::Client* client_;
 };
 
 } // namespace argos_driver

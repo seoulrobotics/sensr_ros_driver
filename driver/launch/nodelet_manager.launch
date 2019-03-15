@@ -9,6 +9,7 @@
   <!-- load driver nodelet into it -->
   <node pkg="nodelet" type="nodelet" name="argos_driver"
         args="load argos_driver/DriverNodelet argos" >
+    <param name="argos_ip" value="$(arg argos_ip)" />
   </node>    
 
 </launch>

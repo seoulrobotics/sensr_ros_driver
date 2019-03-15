@@ -9,10 +9,14 @@ namespace argos_driver
 {
 
 ArgosDriver::ArgosDriver(ros::NodeHandle node, ros::NodeHandle private_nh) 
-  : client_("localhost")
+  : client_(nullptr)
 {
-  ROS_INFO("Argos driver succesfully started.");
   output_ = node.advertise<argos_msgs::argos_message>("argos_packets", 10);
+  // Get param for ip.
+  std::string ip_address;
+  private_nh.param("argos_ip", ip_address, std::string("localhost"));
+  client_ = new argos::Client(ip_address.c_str());
+  ROS_INFO("Argos driver succesfully started - listening on ip %s", ip_address.c_str());
 }
 
 void CopyBoundingBox(const bounding_box& source, argos_msgs::bounding_box& target)
@@ -48,7 +52,7 @@ void CopyPoints(const point_list& source, std::vector<geometry_msgs::Vector3>& t
 bool ArgosDriver::Poll(void)
 {
   output_message message;
-  if (client_.ReceiveMessageAsync(message))
+  if (client_->ReceiveMessageAsync(message))
   {
     argos_msgs::argos_messagePtr packet(new argos_msgs::argos_message);
     packet->header.stamp.sec = message.time_stamp().seconds();
@@ -108,7 +112,6 @@ bool ArgosDriver::Poll(void)
     }
 
     output_.publish(packet);
-    ROS_INFO("Message received from argos!");
   }
   return true;
 }
