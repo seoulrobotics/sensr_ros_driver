@@ -1,0 +1,14 @@
+<!-- -*- mode: XML -*- -->
+<!-- start argos_driver/DriverNodelet in a nodelet manager -->
+
+<launch>
+
+  <!-- start nodelet manager -->
+  <node pkg="nodelet" type="nodelet" name="argos" args="manager" output="screen"/>
+
+  <!-- load driver nodelet into it -->
+  <node pkg="nodelet" type="nodelet" name="argos_driver"
+        args="load argos_driver/DriverNodelet argos" >
+  </node>    
+
+</launch>

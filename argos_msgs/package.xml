@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>argos_msgs</name>
+  <version>1.0.0</version>
+  <description>ROS message definitions for Seoul Robotics perception output.</description>
+  <maintainer email="stefano@seoulrobotics.org">Stefano Musumeci</maintainer>
+  <author>Stefano Musumeci</author>
+  <license>MIT</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>message_generation</build_depend>
+  <depend>std_msgs</depend>
+  <exec_depend>message_runtime</exec_depend>
+</package>

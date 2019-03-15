@@ -1,8 +1,0 @@
-prefix=/home/seoulrobotics/repos/argos_driver/build/devel
-
-Name: argos_driver
-Description: Description of argos_driver
-Version: 1.0.0
-Cflags: -I/home/seoulrobotics/repos/argos_driver/include
-Libs: -L/home/seoulrobotics/repos/argos_driver/build/devel/lib 
-Requires: nodelet roscpp

@@ -1,0 +1,9 @@
+int32 id
+argos_msgs/bounding_box bounding_box
+geometry_msgs/Vector3[] points
+int32 label
+float32 probability
+bool tracking_reliable
+geometry_msgs/Vector3 velocity
+geometry_msgs/Vector3[] history
+geometry_msgs/Vector3[] prediction
