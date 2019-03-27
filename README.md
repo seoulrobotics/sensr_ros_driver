@@ -5,7 +5,7 @@
 
 ### Dependencies
 
-Argos ros driver depends on Argos SDK [ZeroMQ](https://gitlab.com/seoulrobotics/argos-developers/argos_sdk)
+Argos ros driver depends on [Argos SDK](https://gitlab.com/seoulrobotics/argos-developers/argos_sdk)
 
 ### From Source
 
