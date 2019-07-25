@@ -22,7 +22,7 @@ ArgosDriver::ArgosDriver(ros::NodeHandle node, ros::NodeHandle private_nh)
 void CopyBoundingBox(const bounding_box& source, argos_msgs::bounding_box& target)
 {
   float* position_ptr = (float*)source.position().data();
-  float* size_ptr = (float*)source.position().data();
+  float* size_ptr = (float*)source.size().data();
   target.position.x = position_ptr[0];
   target.position.y = position_ptr[1];
   target.position.z = position_ptr[2];
