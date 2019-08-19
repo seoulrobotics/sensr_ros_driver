@@ -8,7 +8,7 @@
 namespace sensr_driver
 {
 
-SensrDriver::SensrDriver(ros::NodeHandle node, ros::NodeHandle private_nh) 
+SensrDriver::SensrDriver(ros::NodeHandle node, ros::NodeHandle private_nh)
   : client_(nullptr)
 {
   output_ = node.advertise<sensr_msgs::sensr_message>("sensr_packets", 10);
@@ -78,17 +78,6 @@ bool SensrDriver::Poll(void)
       packet->object_points[i].x = ptr[0];
       packet->object_points[i].y = ptr[1];
       packet->object_points[i].z = ptr[2];
-    }
-
-    auto& invalid_points = message.point_cloud().invalid_points();
-    int invalid_points_count = invalid_points.size();
-    packet->invalid_points.resize(invalid_points_count);
-    for(int i = 0; i < invalid_points_count; ++i)
-    {
-      float* ptr = ((float*)invalid_points.points().data()) + i * 3;
-      packet->invalid_points[i].x = ptr[0];
-      packet->invalid_points[i].y = ptr[1];
-      packet->invalid_points[i].z = ptr[2];
     }
 
     int non_tracked_objects_count = message.non_tracked_objects_size();
