@@ -1,15 +1,15 @@
 <!-- -*- mode: XML -*- -->
-<!-- start argos_driver/DriverNodelet in a nodelet manager -->
+<!-- start sensr_driver/DriverNodelet in a nodelet manager -->
 
 <launch>
 
   <!-- start nodelet manager -->
-  <node pkg="nodelet" type="nodelet" name="argos" args="manager" output="screen"/>
+  <node pkg="nodelet" type="nodelet" name="sensr" args="manager" output="screen"/>
 
   <!-- load driver nodelet into it -->
-  <node pkg="nodelet" type="nodelet" name="argos_driver"
-        args="load argos_driver/DriverNodelet argos" >
-    <param name="argos_ip" value="$(arg argos_ip)" />
+  <node pkg="nodelet" type="nodelet" name="sensr_driver"
+        args="load sensr_driver/DriverNodelet sensr" >
+    <param name="sensr_ip" value="$(arg sensr_ip)" />
   </node>    
 
 </launch>

@@ -1,11 +1,10 @@
-![SDK Logo](https://gitlab.com/stefano6/sdk_public_test/blob/master/images/Logo.png)
-# Argos Ros Driver
+# Seoul Robotics SENSR ROS Driver
 
 ## Installation
 
 ### Dependencies
 
-Argos ros driver depends on [Argos SDK](https://gitlab.com/seoulrobotics/argos-developers/argos_sdk)
+SENSR ROS driver depends on [SENSR SDK](https://github.com/seoulrobotics/sensr_sdk)
 
 ### From Source
 
@@ -16,4 +15,4 @@ Argos ros driver depends on [Argos SDK](https://gitlab.com/seoulrobotics/argos-d
 ## Usage
 
 - Use the ros launch file in driver/launch folder. 
-- Place the ip of the machine that is running argos as argument "argos_ip" when running roslaunch file.
+- Place the ip of the machine that is running SENSR as argument "sensr_ip" when running roslaunch file.

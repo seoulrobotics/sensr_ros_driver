@@ -2,7 +2,7 @@
 
 int main(int argc, char** argv)
 {
-  ros::init(argc, argv, "argos_node");
+  ros::init(argc, argv, "sensr_node");
   ros::NodeHandle node;
   ros::NodeHandle private_nh("~");
 

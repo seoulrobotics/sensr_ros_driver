@@ -4,9 +4,9 @@
 #include <pluginlib/class_list_macros.h>
 #include <nodelet/nodelet.h>
 #include <boost/thread.hpp>
-#include "argos_driver/driver.h"
+#include "sensr_driver/driver.h"
 
-namespace argos_driver
+namespace sensr_driver
 {
 
 class DriverNodelet : public nodelet::Nodelet
@@ -32,12 +32,12 @@ private:
 
   volatile bool running_;
   boost::shared_ptr<boost::thread> deviceThread_;
-  boost::shared_ptr<ArgosDriver> driver_; ///< driver implementation class
+  boost::shared_ptr<SensrDriver> driver_; ///< driver implementation class
 };
 
 void DriverNodelet::onInit()
 {
-  driver_.reset(new ArgosDriver(getNodeHandle(), getPrivateNodeHandle()));
+  driver_.reset(new SensrDriver(getNodeHandle(), getPrivateNodeHandle()));
   // spawn device poll thread
   running_ = true;
   deviceThread_ = boost::shared_ptr< boost::thread >
@@ -59,9 +59,9 @@ void DriverNodelet::devicePoll()
   running_ = false;
 }
 
-} // namespace argos_driver
+} // namespace sensr_driver
 
-// Register this plugin with pluginlib.  Names must match nodelet_argos.xml.
+// Register this plugin with pluginlib.  Names must match nodelet_sensr.xml.
 //
 // parameters are: class type, base class type
-PLUGINLIB_EXPORT_CLASS(argos_driver::DriverNodelet, nodelet::Nodelet)
+PLUGINLIB_EXPORT_CLASS(sensr_driver::DriverNodelet, nodelet::Nodelet)

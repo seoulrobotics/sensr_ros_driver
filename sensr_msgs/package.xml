@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>argos_msgs</name>
+  <name>sensr_msgs</name>
   <version>1.0.0</version>
   <description>ROS message definitions for Seoul Robotics perception output.</description>
   <maintainer email="stefano@seoulrobotics.org">Stefano Musumeci</maintainer>

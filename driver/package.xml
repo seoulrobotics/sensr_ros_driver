@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>argos_driver</name>
+  <name>sensr_driver</name>
   <version>1.0.0</version>
   <description>
-    ROS device driver for Argos Sdk.
+    ROS driver for SENSR SDK.
   </description>
   <maintainer email="stefano@seoulrobotics.org">Stefano Musumeci</maintainer>
   <author>Stefano Musumeci</author>
@@ -15,9 +15,9 @@
 
   <depend>nodelet</depend>
   <depend>roscpp</depend>
-  <depend>argos_msgs</depend>
+  <depend>sensr_msgs</depend>
 
   <export>
-    <nodelet plugin="${prefix}/nodelet_argos.xml"/>
+    <nodelet plugin="${prefix}/nodelet_sensr.xml"/>
   </export>
 </package>

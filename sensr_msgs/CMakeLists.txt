@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(argos_msgs)
+project(sensr_msgs)
 
 find_package(catkin REQUIRED COMPONENTS message_generation std_msgs geometry_msgs)
 
 add_message_files(
   DIRECTORY msg
   FILES
-  argos_message.msg
+  sensr_message.msg
   bounding_box.msg
   non_tracked_object.msg
   tracked_object.msg

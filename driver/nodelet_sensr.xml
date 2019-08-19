@@ -1,9 +1,9 @@
 <library path="lib/libdriver_nodelet">
-  <class name="argos_driver/DriverNodelet"
-         type="argos_driver::DriverNodelet"
+  <class name="sensr_driver/DriverNodelet"
+         type="sensr_driver::DriverNodelet"
          base_class_type="nodelet::Nodelet">
     <description> 
-      Publish Argos perception data packets.
+      Publish SENSR perception data packets.
     </description>
   </class>
 </library>
