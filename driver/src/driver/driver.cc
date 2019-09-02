@@ -21,27 +21,26 @@ SensrDriver::SensrDriver(ros::NodeHandle node, ros::NodeHandle private_nh)
 
 void CopyBoundingBox(const bounding_box& source, sensr_msgs::bounding_box& target)
 {
-  float* position_ptr = (float*)source.position().data();
-  float* size_ptr = (float*)source.size().data();
-  target.position.x = position_ptr[0];
-  target.position.y = position_ptr[1];
-  target.position.z = position_ptr[2];
-  target.size.x = size_ptr[0];
-  target.size.y = size_ptr[1];
-  target.size.z = size_ptr[2];
+  const vector3& position = source.position();
+  const vector3& size = source.size();
+  target.position.x = position.x();
+  target.position.y = position.y();
+  target.position.z = position.z();
+  target.size.x = size.x();
+  target.size.y = size.y();
+  target.size.z = size.z();
   target.yaw = source.yaw();
 }
 
-void CopyPoints(const point_list& source, std::vector<geometry_msgs::Vector3>& target)
+void CopyPoints(const google::protobuf::RepeatedPtrField<vector3>& source, std::vector<geometry_msgs::Vector3>& target)
 {
   target.resize(source.size());
-  const float* ptr = (const float*)source.points().data();
   for(int i = 0; i < source.size(); ++i)
   {
-    const float* point = ptr + i * 3;
-    target[i].x = point[0];
-    target[i].y = point[1];
-    target[i].z = point[2];
+    const vector3& point = source[i];
+    target[i].x = point.x();
+    target[i].y = point.y();
+    target[i].z = point.z();
   }
 }
 
@@ -101,10 +100,10 @@ bool SensrDriver::Poll(void)
       object.probability = source_object.probability();
       object.tracking_reliable = source_object.tracking_reliable();
 
-      float* ptr = (float*)source_object.velocity().data();
-      object.velocity.x = ptr[0];
-      object.velocity.y = ptr[1];
-      object.velocity.z = ptr[2];
+      const vector3& velocity = source_object.velocity();
+      object.velocity.x = velocity.x();
+      object.velocity.y = velocity.y();
+      object.velocity.z = velocity.z();
 
       CopyBoundingBox(source_object.bbox(), object.bounding_box);
       CopyPoints(source_object.history(), object.history);
